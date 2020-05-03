@@ -1,0 +1,13 @@
+Colors:
+
+192, 57, 43 - brick shade
+165, 105, 189 - violet shade
+84, 153, 199 - blue shade
+
+
+brick - rgba(129, 14, 14)
+blue - rgba(90, 140, 158)
+violet - rgba(172, 113, 196)
+
+Carousel - slick
+Search in history for codepen.io carousel

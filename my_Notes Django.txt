@@ -1,0 +1,72 @@
+Creating project
+	- django-admin startproject *****
+
+
+Creating app
+	- python manage.py startapp *****
+
+
+Steps to add an app to project:
+
+
+	- Add app_name to project settings INSTALLED_APPS
+
+	- Redirect urls to app's urls
+		
+		- Make sure you include the following
+			from django.contrib import admin
+			from django.urls import path, include
+
+		- Adding path
+			- path('', include('bapp_name.urls')),
+
+
+	- Add urls.py to the app folder and follow the steps below
+		
+
+		- Import the following
+		
+			from django.conf.urls import url, include
+			from django.urls import path
+			from . import views
+
+		- urlpatterns = [url('^$', views.admin_dashboard, name='index'), , , ]
+
+
+	
+	- Create templates folder and inside another folder with same name as the app
+
+	- Things to import in views
+	
+		from django.shortcuts import render
+		from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
+		from django.views.decorators.csrf import csrf_exempt
+		from django.contrib.auth.decorators import login_required
+		from django.contrib.auth import authenticate, logout, update_session_auth_hash
+		from django.contrib.auth import login
+		from .models import *
+
+
+
+
+Static files
+	
+	- Add the following:
+		
+		STATICFILES_DIRS = [
+    			os.path.join(BASE_DIR, "static"),
+		]
+
+
+
+	Files needed:
+
+	- CSS
+		bootstrap.min.css
+	
+	-JS
+		bootstrap.min.js
+		jquery.min.js
+
+
+	- inlcude "<meta name="viewport" content="width=device-width, initial-scale=1.0">" for bootstrap to work on mobile view

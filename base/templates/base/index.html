@@ -1,0 +1,58 @@
+{% extends 'base/base.html' %}
+
+{% block body %}
+
+{% load staticfiles %}
+
+<style>
+
+		
+</style>
+
+
+
+
+<!-- Update button -->
+<div>
+	<button type="button" class="btn btn-primary" id="upload_button">
+		<span class="glyphicon glyphicon-cloud-upload"></span><span style="margin-left: 7px;">Upload</span>
+	</button>
+</div>
+
+<!-- Body -->
+<div class="container-fluid">
+
+	<!-- Title -->
+	<div class="row">
+		<h3 class="app_heading">Movies</h3>		
+	</div>
+
+	<!-- Body -->
+	<div class="row">
+
+		{% for i in 'asbdasbcaskfbalsfbsahf' %}
+		<a href="{% url 'play_movie' %}">
+			
+			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 item_parent">
+
+				<div class="item">
+
+					<!-- <div class="item_img"></div> -->
+					<div class="item_img" style="background-image: url({% static 'images/maharshi.jpg' %});"></div>
+					
+					<div class="item_txt">
+						<h4>Maharshi</h4>
+					</div>
+				
+				</div>
+			
+			</div>
+		
+		</a>
+		{% endfor %}
+
+	</div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base/base.html' %}
+
+{% block body %}
+
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/video-js.css' %}">
+<script src="{% static 'js/video-sub.js' %}"></script>
+<script src="{% static 'js/myjs.js' %}"></script>
+
+<style>
+	#body_div{
+		padding: 0;
+	}
+	#my-video{
+		width: 100%;
+		height: auto;
+		max-height: 75vh;
+	}
+	.player{
+		padding: 0 !important;
+	}
+</style>
+<div class="container-fluid">
+	
+	<!-- Video -->
+	<div class="row">
+		<center>
+			<div class="col-md-12 col-sm-12 col-xs-12 player">
+				
+				<video id="my-video" class="video-js" controls preload="auto" poster="{% static 'images/m.png' %}" data-setup="{}">
+
+					<source src="{% static movieName %}" type='video/mp4'>
+					<track src="{% static srtName %}" kind="subtitle" srclang="en-US" label="English" />
+
+				</video>				
+			
+			</div>
+		</center>	
+	</div>
+
+	<!-- Title -->
+	<div class="row">
+		
+	</div>
+
+</div>
+
+
+<script src="{% static 'js/video-js.js' %}"></script>
+
+{% endblock %}

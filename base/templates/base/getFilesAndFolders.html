@@ -1,0 +1,113 @@
+{% extends 'base/base.html' %}
+
+{% block body %}
+
+{% load static %}
+
+
+<div class="container-fluid">
+
+	{% if folders %}
+
+	<div class="row">
+		<h3 class="app_heading">Folders</h3>
+
+		{% for folderName in folders %}
+			{% with path|add:folderName as folderPath %}
+
+				<a href="{% url 'getFilesAndFolders' folderPath %}">
+				
+					<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 item_parent">
+						<div class="item">
+
+							<!-- <div class="item_img"></div> -->
+							<div class="item_img" style="background-image: url({% static 'images/folder.png' %});"></div>
+							
+							<div class="item_txt">
+								<h4>{{folderName}}</h4>
+							</div>
+						
+						</div>
+					</div>
+
+				</a>
+
+			{% endwith %}
+		{% endfor %}
+
+	</div>
+	<br><br>
+
+	{% endif %}
+	
+
+
+	{% if files %}
+
+	<div class="row">
+	
+		<h3 class="app_heading">Files</h3>
+
+		{% for fileName in files %}
+			{% with path|add:fileName as filePath %}
+				
+				<a href="{% url 'play_movie' filePath %}">
+					
+					<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 item_parent">
+
+						<div class="item">
+
+							<!-- <div class="item_img"></div> -->
+							<div class="item_img" style="background-image: url({% static 'images/m.png' %});"></div>
+							
+							<div class="item_txt">
+								<h4>{{fileName}}</h4>
+							</div>
+						
+						</div>
+					
+					</div>
+				
+				</a>
+
+			{% endwith %}
+		{% endfor %}
+
+	</div>
+
+	{% endif %}
+
+
+	{% if srt %}
+
+	<div class="row">
+	
+		<h3 class="app_heading">Subtitles</h3>
+
+		{% for f in srt %}
+			
+			<a href="{% static f %}" download>
+				
+				<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 item_parent">
+
+					<div class="item">
+		
+						<div class="item_txt">
+							<h4>{{f}}</h4>
+						</div>
+					
+					</div>
+				
+				</div>
+			
+			</a>
+
+		{% endfor %}
+
+	</div>
+
+	{% endif %}
+
+</div>
+
+{% endblock %}
